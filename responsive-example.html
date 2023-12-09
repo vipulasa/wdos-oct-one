@@ -10,13 +10,51 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* @media only screen and (min-width: 600px) {
+            body {
+                background-color: #000;
+            }
+        }
+        
+        @media only screen and (min-width: 900px) {
+            body {
+                background-color: #ec1010;
+            }
+        } 
+        
+        @media only screen and (min-width: 1100px) {
+            body {
+                background-color: #47ec10;
+            }
+        } */
+    </style>
+
 </head>
 
 <body>
+
+    <div class="container mx-auto bg-blue-400 text-white p-10 mt-10 rounded rounded-xl">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam veniam quidem cum. Ipsum quidem dignissimos odio
+        animi cum nulla placeat sint consectetur? Labore quas numquam deleniti, non iusto pariatur. Error!
+    </div>
+    
+    <div class="w-full bg-blue-400">
+        <div class="container mx-auto bg-yellow-400 text-white p-10 mt-10 rounded rounded-xl">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam veniam quidem cum. Ipsum quidem dignissimos odio
+            animi cum nulla placeat sint consectetur? Labore quas numquam deleniti, non iusto pariatur. Error!
+        </div>
+    </div>
+
+
+
+
     <div id="_app" x-data="{}">
-        <header>
-            <nav class="container mx-auto">
-                <ul class="flex space-x-5">
+
+        <header class="">
+            <nav>
+                <ul>
                     <li>
                         <a href="/">Home</a>
                     </li>
@@ -48,12 +86,9 @@
 
 
         </main>
-        <footer class="bg-black text-white">
-            <div class="container mx-auto">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi quidem eveniet sequi dolores ea
-                aliquid
-                minima, accusamus facere consectetur odio at distinctio natus nulla quo eius veniam voluptatem? Ratione!
-            </div>
+
+        <footer>
+
         </footer>
     </div>
 
