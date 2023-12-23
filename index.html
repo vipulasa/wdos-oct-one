@@ -40,7 +40,7 @@
         <header class="bg-leopard-200">
             <div class="container mx-auto flex justify-between">
                 <img src="/images/logo.png" alt="Department of Wildlife Conservation" class="w-64">
-                <nav class="grid content-center">
+                <nav class="content-center hidden lg:grid">
                     <ul class="flex space-x-7 text-leopard-700 text-sm">
                         <li>
                             <a href="/" class="hover:text-leopard-950">Home</a>
@@ -74,6 +74,95 @@
             </div>
         </header>
         <main>
+
+            <!-- Slideshow Start -->
+            <div class="container mx-auto overflow-hidden">
+                <div class="swiper-container h-screen">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="https://placehold.co/1920x1080" 
+                                 alt="Placeholder" class="absolute inset-0 w-auto h-auto">
+                            <h1 class="text-4xl absolute top-0">Hello !!!</h1>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/1920x1080" alt="Placeholder">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/1920x1080" alt="Placeholder">
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            <!-- Slideshow End -->
+
+            <!-- Summary Block Start -->
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-2 gap-6 my-8">
+                    <div>
+                        <img src="https://placehold.co/600x400" alt="Placeholder">
+                    </div>
+                    <div class="relative">
+                        <h4 class="text-sm text-leopard-300">Who are we</h4>
+                        <h2 class="text-2xl font-bold text-leopard-700 mt-2">
+                            Department of Wildlife Conservation
+                        </h2>
+                        <p class="text-sm leading-7 mt-2">
+                            The Department of Wildlife Conservation has been entrusted with the responsibility of
+                            preserving
+                            eco system endowed with various plants and animal species which has inherited the country
+                            with
+                            enormous bio-diversity. The main function of the Department of Wildlife Conservation
+                            established
+                            in 1949 is the conservation of wildlife resources in Sri Lanka.
+                        </p>
+                        <span class="text-leopard-300 text-sm pt-3 block">
+                            Read More
+                        </span>
+                        <a href="/wildlife-dept.html" class="absolute inset-0"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Summary Block End -->
+
+            <!-- Leopard Block Start -->
+            <div class="container mx-auto">
+                <div class="grid lg:grid-cols-2 gap-6 my-8">
+                    <div class="relative">
+                        <h4 class="text-sm text-leopard-300">Our Leopard</h4>
+                        <h2 class="text-2xl font-bold text-leopard-700 mt-2">
+                            Sri Lankan Leopard
+                        </h2>
+                        <p class="text-sm leading-7 mt-2">
+                            The Sri Lankan leopard (Panthera pardus kotiya) is a leopard subspecies native to Sri Lanka.
+                            It was first described in 1956 by Sri Lankan zoologist Paules Edward Pieris Deraniyagala.[2]
+                            <br>
+                            Since 2020, the Sri Lankan leopard has been listed as Vulnerable on the IUCN Red List, as
+                            the population is estimated at less than 800 mature individuals, and is probably
+                            declining.[1]
+                        </p>
+                        <span class="text-leopard-300 text-sm pt-3 block">
+                            Read More
+                        </span>
+                        <a href="/leopard.html" class="absolute inset-0"></a>
+                    </div>
+                    <div>
+                        <img src="/images/kotiya.jpeg" alt="Placeholder">
+                    </div>
+                </div>
+            </div>
+            <!-- Leopard Block End -->
+
+            <!-- Yala Block Start -->
+
+            <!-- Yala Block End -->
+
+            <!-- Wilpattu Block Start -->
+
+            <!-- Wilpattu Block End -->
+
+            <!-- Contact Block Start -->
+
+            <!-- Contact Block End -->
 
         </main>
         <footer class="bg-leopard-600 text-white footer-paw">
@@ -144,7 +233,16 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('_home', () => ({
-     
+                init() {
+                    var swiper = new Swiper(".swiper-container", {                    
+                        loop: true,
+                        autoplay: {
+                            delay: 10000,
+                            disableOnInteraction: false,
+                        },
+    
+                    });
+                }
             }))
         })
     </script>
