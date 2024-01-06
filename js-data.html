@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <div id="_app" x-data="application">
+        <div>
+            <input type="text" x-model="todo">
+            <button @click="addTodo">Add</button>
+        </div>
+        <ul>
+            <template x-for="item in todos">
+                <li @click="complete(item)">
+                    <h3 x-text="item.todo"></h3>
+                    <span x-text="item.done ? 'Done' : 'Not Done'"></span>
+                </li>
+            </template>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('application', () => ({
+                todo : '',
+                todos: [
+                    {
+                        todo: 'Learn Alpine.js',
+                        done: false
+                    },
+                    {
+                        todo: 'Learn ReactJS',
+                        done: false
+                    }
+                ],
+                complete(item){
+                    item.done = !item.done;
+                },
+                addTodo(){
+
+                    if(this.todo === ''){
+                        alert('Please enter a todo');
+                        return;
+                    }
+
+                    this.todos.push({
+                        todo: this.todo,
+                        done: false
+                    });
+
+                    this.todo = '';
+                }
+            }))
+        })
+    </script>
+</body>
+
+</html>
