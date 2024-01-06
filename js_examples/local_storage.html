@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <div id="_app" x-data="application">
+        <h1 x-text="name"></h1>
+
+        <input type="text" x-model="name">
+        <button @click="saveToLocalStorage">Save</button>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('application', () => ({
+                name : '',
+
+                saveToLocalStorage(){
+                    localStorage.setItem('name', this.name);
+                },
+
+                init(){
+                    this.name = localStorage.getItem('name');
+                }
+            }))
+        })
+    </script>
+</body>
+
+</html>
