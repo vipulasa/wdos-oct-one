@@ -79,17 +79,13 @@
             <div class="container mx-auto overflow-hidden">
                 <div class="swiper-container h-screen">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide relative">
-                            <img src="https://placehold.co/1920x1080" 
-                                 alt="Placeholder" class="absolute inset-0 w-auto h-auto">
-                            <h1 class="text-4xl absolute top-0">Hello !!!</h1>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://placehold.co/1920x1080" alt="Placeholder">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://placehold.co/1920x1080" alt="Placeholder">
-                        </div>
+                        <template x-for="slide in $store.home.slideshow">
+                            <div class="swiper-slide relative">
+                                <img x-bind:src="slide.image" 
+                                     alt="Placeholder" class="absolute inset-0 w-auto h-auto">
+                                <h1 class="text-4xl absolute top-0" x-text="slide.title"></h1>
+                            </div>
+                        </template>
                     </div>                
                 </div>
             </div>
@@ -99,26 +95,16 @@
             <div class="container mx-auto">
                 <div class="grid lg:grid-cols-2 gap-6 my-8">
                     <div>
-                        <img src="https://placehold.co/600x400" alt="Placeholder">
+                        <img x-bind:src="$store.home.block_one.image" alt="Placeholder">
                     </div>
                     <div class="relative">
-                        <h4 class="text-sm text-leopard-300">Who are we</h4>
-                        <h2 class="text-2xl font-bold text-leopard-700 mt-2">
-                            Department of Wildlife Conservation
-                        </h2>
-                        <p class="text-sm leading-7 mt-2">
-                            The Department of Wildlife Conservation has been entrusted with the responsibility of
-                            preserving
-                            eco system endowed with various plants and animal species which has inherited the country
-                            with
-                            enormous bio-diversity. The main function of the Department of Wildlife Conservation
-                            established
-                            in 1949 is the conservation of wildlife resources in Sri Lanka.
-                        </p>
+                        <h4 class="text-sm text-leopard-300" x-text="$store.home.block_one.sub_title"></h4>
+                        <h2 x-text="$store.home.block_one.title" class="text-2xl font-bold text-leopard-700 mt-2"></h2>
+                        <p class="text-sm leading-7 mt-2" x-text="$store.home.block_one.body"></p>
                         <span class="text-leopard-300 text-sm pt-3 block">
                             Read More
                         </span>
-                        <a href="/wildlife-dept.html" class="absolute inset-0"></a>
+                        <a x-bind:href="$store.home.block_one.link" class="absolute inset-0"></a>
                     </div>
                 </div>
             </div>
@@ -126,27 +112,18 @@
 
             <!-- Leopard Block Start -->
             <div class="container mx-auto">
-                <div class="grid lg:grid-cols-2 gap-6 my-8">
+                <div class="grid lg:grid-cols-2 gap-6 my-8">                
                     <div class="relative">
-                        <h4 class="text-sm text-leopard-300">Our Leopard</h4>
-                        <h2 class="text-2xl font-bold text-leopard-700 mt-2">
-                            Sri Lankan Leopard
-                        </h2>
-                        <p class="text-sm leading-7 mt-2">
-                            The Sri Lankan leopard (Panthera pardus kotiya) is a leopard subspecies native to Sri Lanka.
-                            It was first described in 1956 by Sri Lankan zoologist Paules Edward Pieris Deraniyagala.[2]
-                            <br>
-                            Since 2020, the Sri Lankan leopard has been listed as Vulnerable on the IUCN Red List, as
-                            the population is estimated at less than 800 mature individuals, and is probably
-                            declining.[1]
-                        </p>
+                        <h4 class="text-sm text-leopard-300" x-text="$store.home.block_two.sub_title"></h4>
+                        <h2 x-text="$store.home.block_two.title" class="text-2xl font-bold text-leopard-700 mt-2"></h2>
+                        <p class="text-sm leading-7 mt-2" x-text="$store.home.block_two.body"></p>
                         <span class="text-leopard-300 text-sm pt-3 block">
                             Read More
                         </span>
-                        <a href="/leopard.html" class="absolute inset-0"></a>
+                        <a x-bind:href="$store.home.block_two.link" class="absolute inset-0"></a>
                     </div>
                     <div>
-                        <img src="/images/kotiya.jpeg" alt="Placeholder">
+                        <img x-bind:src="$store.home.block_two.image" alt="Placeholder">
                     </div>
                 </div>
             </div>
@@ -228,6 +205,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/store/home.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
 
     <script>
@@ -237,7 +215,7 @@
                     var swiper = new Swiper(".swiper-container", {                    
                         loop: true,
                         autoplay: {
-                            delay: 10000,
+                            delay: 1000,
                             disableOnInteraction: false,
                         },
     
