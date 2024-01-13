@@ -43,5 +43,12 @@ document.addEventListener('alpine:init', () => {
                 this.user = JSON.parse(user);
             }
         }
+    }); 
+    
+    
+    Alpine.store('common', {
+        imageSrc(src){    
+            return 'https://vipulasa.github.io/wdos-oct-one' + src;
+        }
     });
 });

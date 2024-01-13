@@ -39,7 +39,7 @@
     <div id="_home" x-data="_home">
         <header class="bg-leopard-200">
             <div class="container mx-auto flex justify-between">
-                <img src="/images/logo.png" alt="Department of Wildlife Conservation" class="w-64">
+                <img x-bind:src="$store.common.imageSrc('/images/logo.png')" alt="Department of Wildlife Conservation" class="w-64">
                 <nav class="content-center hidden lg:grid">
                     <ul class="flex space-x-7 text-leopard-700 text-sm">
                         <li>
@@ -95,7 +95,7 @@
             <div class="container mx-auto">
                 <div class="grid lg:grid-cols-2 gap-6 my-8">
                     <div>
-                        <img x-bind:src="$store.home.block_one.image" alt="Placeholder">
+                        <img x-bind:src="$store.common.imageSrc($store.home.block_one.image)" alt="Placeholder">
                     </div>
                     <div class="relative">
                         <h4 class="text-sm text-leopard-300" x-text="$store.home.block_one.sub_title"></h4>
@@ -123,7 +123,7 @@
                         <a x-bind:href="$store.home.block_two.link" class="absolute inset-0"></a>
                     </div>
                     <div>
-                        <img x-bind:src="$store.home.block_two.image" alt="Placeholder">
+                        <img x-bind:src="$store.common.imageSrc($store.home.block_two.image)" alt="Placeholder">
                     </div>
                 </div>
             </div>
