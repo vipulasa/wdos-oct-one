@@ -10,15 +10,50 @@
 
 <body>
     <div id="_app" x-data="application">
-       
+
+        <!-- <template x-for="user in $store.auth.users">
+            <div x-text="user.username"></div>
+        </template> -->
+
+        <div x-show="$store.auth.user">
+            <div x-text="$store.auth.user.username"></div>
+            <button x-on:click="$store.auth.logout()">Logout</button>
+        </div>
+
+        <template x-if="!$store.auth.user">
+            <form x-on:submit.prevent="authSubmit">
+                <input type="text" x-model="username" placeholder="Username">
+                <input type="password" x-model="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </template>
+
+        
+
     </div>
+
+    <script src="../js/app.js"></script>
 
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('application', () => ({
-    
-                init(){
-                
+
+                username: '',
+                password: '',
+
+                authSubmit() {
+                    let user = this.$store.auth.authenticate(this.username, this.password);
+
+                    if (user) {
+                        alert('Welcome ' + user.username + ' !!!');
+                        location.href = '/index.html';
+                    } else {
+                        alert('Hora !!!');
+                    }
+                },
+
+                init() {
+
                 }
             }))
         })
