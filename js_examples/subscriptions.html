@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <div id="_app" x-data="application">
+
+
+        <div x-show="$store.auth.user">
+            <div x-text="$store.auth.user.username"></div>
+            <button x-on:click="$store.auth.logout()">Logout</button>
+        </div>
+
+        <div>
+            <form x-on:submit.prevent="subscribe">
+                <input type="email" x-model="email" placeholder="Email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <template x-if="$store.auth.user">
+            <div x-show="subscriptions.length">
+                <template x-for="email in subscriptions">
+                    <div x-text="email"></div>
+                </template>
+            </div>
+        </template>
+
+        <template x-if="!$store.auth.user">
+            <h1>
+                Please login to see your newsletter subscriptions
+            </h1>
+        </template>
+
+    </div>
+
+    <script src="../js/app.js"></script>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('application', () => ({
+
+                email: '',
+
+                subscriptions: [],
+
+                subscribe() {
+
+                    let subscriptions = localStorage.getItem('subscriptions');
+
+                    if (subscriptions) {
+                        subscriptions = JSON.parse(subscriptions);
+                    } else {
+                        subscriptions = [];
+                    }
+
+                    subscriptions.push(this.email);
+
+                    localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
+
+                    this.email = '';
+                },
+
+                init() {
+                    let subscriptions = localStorage.getItem('subscriptions');
+
+                    if (subscriptions) {
+                        this.subscriptions = JSON.parse(subscriptions);
+                    }
+                }
+            }))
+        })
+    </script>
+</body>
+
+</html>

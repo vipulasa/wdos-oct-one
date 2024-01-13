@@ -1,6 +1,6 @@
 document.addEventListener('alpine:init', () => {
     Alpine.store('auth', {
-        user : null,
+        user : null,    
         users : [
             {
                 username : 'admin',
