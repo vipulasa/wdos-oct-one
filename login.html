@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'leopard': {
+                            '50': '#f6f6f0',
+                            '100': '#e9e9d8',
+                            '200': '#d5d4b3',
+                            '300': '#bcb888',
+                            '400': '#a9a066',
+                            '500': '#9a8f58',
+                            '600': '#8c7d4f',
+                            '700': '#6a5b3e',
+                            '800': '#5b4e38',
+                            '900': '#4f4334',
+                            '950': '#2d241b',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="_app" x-data="{
+
+        username: '',
+        password: '',
+
+        authSubmit() {
+            let user = this.$store.auth.authenticate(this.username, this.password);
+
+            if (user) {
+                alert('Welcome ' + user.username + ' !!!');
+                location.href = '/index.html';
+            } else {
+                alert('Hora !!!');
+            }
+        },
+
+        init() {
+
+        }
+    }">
+        <header class="bg-leopard-200">
+            <div class="container mx-auto flex justify-between">
+                <img src="/images/logo.png" alt="Department of Wildlife Conservation" class="w-64">
+                <nav class="grid content-center">
+                    <ul class="flex space-x-7 text-leopard-700 text-sm">
+                        <li>
+                            <a href="/" class="hover:text-leopard-950">Home</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/about.html">About</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/wildlife-dept.html">Wildlife Dept</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/leopard.html">Leopard</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/our-wildlife.html">Our Wildlife</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/yala.html">Yala</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/wilpattu.html">Wilpattu</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="https://www.dwc.gov.lk/">
+                    <img src="/images/sl-flag.png" alt="Sri Lanka" class="h-4 mt-2">
+                </a>
+            </div>
+        </header>
+        <main>
+            <style>
+                .login_img_section {
+                    background: linear-gradient(rgba(2, 2, 2, .7), rgba(0, 0, 0, .7)), url(https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center center;
+                }
+            </style>
+            <div class="h-screen flex">
+                <div class="hidden lg:flex w-full lg:w-1/2 login_img_section
+            justify-around items-center">
+                    <div class=" 
+                    bg-black 
+                    opacity-20 
+                    inset-0 
+                    z-0">
+
+                    </div>
+                    <div class="w-full mx-auto px-20 flex-col items-center space-y-6">
+                        <h1 class="text-white font-bold text-4xl font-sans">Simple App</h1>
+                        <p class="text-white mt-1">The simplest app to use</p>
+                        <div class="flex justify-center lg:justify-start mt-6">
+                            <a href="#"
+                                class="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-white text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Get
+                                Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
+                    <div class="w-full px-8 md:px-32 lg:px-24">
+                        <form class="bg-white rounded-md shadow-2xl p-5" x-on:submit.prevent="authSubmit">
+                            <h1 class="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
+                            <p class="text-sm font-normal text-gray-600 mb-8">Welcome Back</p>
+                            <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                </svg>
+                                <input id="user_name" x-model="username" class=" pl-2 w-full outline-none border-none" type="text"
+                                    name="user_name" placeholder="User Name" />
+                            </div>
+                            <div class="flex items-center border-2 mb-12 py-2 px-3 rounded-2xl ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd"
+                                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                        clipRule="evenodd" />
+                                </svg>
+                                <input x-model="password" class="pl-2 w-full outline-none border-none" type="password" name="password"
+                                    id="password" placeholder="Password" />
+
+                            </div>
+                            <button type="submit"
+                                class="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">Login</button>
+                            <div class="flex justify-between mt-4">
+                                <span
+                                    class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Forgot
+                                    Password ?</span>
+
+                                <a href="#"
+                                    class="text-sm ml-2 hover:text-blue-500 cursor-pointer hover:-translate-y-1 duration-500 transition-all">Don't
+                                    have an account yet?</a>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+        <footer class="bg-leopard-600 text-white footer-paw">
+            <div class="container mx-auto py-2 grid grid-cols-4 h-56">
+                <div class="col-span-1">
+                    <img src="/images/logo-footer.png" alt="Department of Wildlife Conservation" class="w-64">
+                    <h2>Department of Wildlife Conservation</h2>
+                    <p class="text-xs">
+                        The Department of Wildlife Conservation Conserves the Biodiversity of Sri Lanka.
+                    </p>
+                    <ul class="flex mt-5">
+                        <li>
+                            <a href="https://www.facebook.com">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"
+                                    fill="#FFFFFF">
+                                    <path
+                                        d="M13.001 19.9381C16.9473 19.446 20.001 16.0796 20.001 12C20.001 7.58172 16.4193 4 12.001 4C7.5827 4 4.00098 7.58172 4.00098 12C4.00098 16.0796 7.05467 19.446 11.001 19.9381V14H9.00098V12H11.001V10.3458C11.001 9.00855 11.1402 8.52362 11.4017 8.03473C11.6631 7.54584 12.0468 7.16216 12.5357 6.9007C12.9184 6.69604 13.3931 6.57252 14.2227 6.51954C14.5519 6.49851 14.9781 6.52533 15.501 6.6V8.5H15.001C14.0837 8.5 13.7052 8.54332 13.4789 8.66433C13.3386 8.73939 13.2404 8.83758 13.1653 8.97793C13.0443 9.20418 13.001 9.42853 13.001 10.3458V12H15.501L15.001 14H13.001V19.9381ZM12.001 22C6.47813 22 2.00098 17.5228 2.00098 12C2.00098 6.47715 6.47813 2 12.001 2C17.5238 2 22.001 6.47715 22.001 12C22.001 17.5228 17.5238 22 12.001 22Z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+                <div class="pt-5">
+                    <h2 class="text-lg text-leopard-200">Quick Links</h2>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/" class="hover:text-leopard-950">Home</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/about.html">About</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/wildlife-dept.html">Wildlife Dept</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/leopard.html">Leopard</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-5">
+                    <h2 class="text-lg text-leopard-200">Quick Links</h2>
+                    <ul class="space-y-2">
+                        <li>
+                            <a class="hover:text-leopard-950" href="/our-wildlife.html">Our Wildlife</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/yala.html">Yala</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/wilpattu.html">Wilpattu</a>
+                        </li>
+                        <li>
+                            <a class="hover:text-leopard-950" href="/contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-leopard-800 text-white">
+                <div class="container mx-auto text-xs">
+                    <div class="flex justify-between">
+                        <p class="text-center py-2">
+                            All Copyrights Reserved © Department of Wildlife Conservation
+                        </p>
+                        <p class="text-center py-2">
+                            Developed by <a href="">Vipula S</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+</body>
+
+</html>

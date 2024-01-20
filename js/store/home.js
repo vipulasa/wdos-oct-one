@@ -30,7 +30,7 @@ document.addEventListener('alpine:init', () => {
             sub_title: 'Who are we',
             title: 'Department of Wildlife Conservation',
             body: "The Department of Wildlife Conservation has been entrusted with the responsibility of preserving eco system endowed with various plants and animal species which has inherited the country with enormous bio-diversity. The main function of the Department of Wildlife Conservation established in 1949 is the conservation of wildlife resources in Sri Lanka.",
-            image: 'https://placehold.co/600x400',
+            image: '/images/kotiya.jpeg',
             link: '#',
         },
         block_two : {
