@@ -97,7 +97,52 @@
                 <template x-if="$store.auth.user">
                     <div>
                         <div class="flex justify-end">
-                            <button class="bg-leopard-700 text-white px-4 py-2 rounded-lg">Edit</button>
+                            <button x-on:click="$store.home.toggleEditor(1)" class="bg-leopard-700 text-white px-4 py-2 rounded-lg">Edit</button>
+                        </div>
+
+                        <div class="max-w-xl mx-auto" x-show="$store.home.is_editor_visible == 1">
+                            <form action="" class="grid space-y-6" x-on:submit.prevent="$store.home.saveBlock(1)">
+
+                                <div>
+                                    <label for="sub_title" class="block text-xs font-semibold text-gray-600 uppercase">Sub Title</label>
+                                    <input type="text" id="sub_title" 
+                                    class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                                            x-model="$store.home.block_one.sub_title">
+                                </div>
+                                
+                                <div>
+                                    <label for="title" class="block text-xs font-semibold text-gray-600 uppercase">Title</label>
+                                    <input type="text" id="title" 
+                                    class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                                            x-model="$store.home.block_one.title">
+                                </div>
+                                
+                                <div>
+                                    <label for="body" class="block text-xs font-semibold text-gray-600 uppercase">Content</label>
+                                    <textarea id="body" 
+                                    class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                                            x-model="$store.home.block_one.body"></textarea>
+                                </div>
+    
+                                <div>
+                                    <label for="image" class="block text-xs font-semibold text-gray-600 uppercase">Image</label>
+                                    <input type="text" id="image" 
+                                    class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                                            x-model="$store.home.block_one.image">
+                                </div> 
+                                
+                                <div>
+                                    <label for="link" class="block text-xs font-semibold text-gray-600 uppercase">Link</label>
+                                    <input type="text" id="link" 
+                                    class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
+                                            x-model="$store.home.block_one.link">
+                                </div>
+
+                                <div>
+                                    <button type="submit"                                         
+                                    class="bg-leopard-700 text-white px-4 py-2 rounded-lg">Save</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </template>

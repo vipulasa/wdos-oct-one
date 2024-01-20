@@ -1,5 +1,6 @@
 document.addEventListener('alpine:init', () => {
     Alpine.store('home', {
+        is_editor_visible: false,
         slideshow: [
             {
                 image: 'https://placehold.co/1920x1080',
@@ -40,5 +41,15 @@ document.addEventListener('alpine:init', () => {
             image: '/images/kotiya.jpeg',
             link: '#',
         },
+
+        toggleEditor(block_id){
+            this.is_editor_visible = block_id;
+        },
+        saveBlock(block_id){
+
+            // this is where you send the data to the server
+
+            this.toggleEditor(false);
+        }
     });
 });
